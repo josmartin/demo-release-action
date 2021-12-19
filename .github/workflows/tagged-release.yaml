@@ -17,12 +17,12 @@ jobs:
 
       - name: "Build & test"
         run: |
-          DOCKER_BUILDKIT=1 docker build --output type=local,dest=. .
+          DOCKER_BUILDKIT=1 docker build --output type=local,dest=. --build-args NAME=robj1 .
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
           files: |
-            build/output
+            build/output*
             
