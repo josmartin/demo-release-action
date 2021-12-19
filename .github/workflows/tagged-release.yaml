@@ -24,7 +24,6 @@ jobs:
         run: |
           wget -q -O COPYING  'https://sourceware.org/git/?p=glibc.git;a=blob_plain;f=COPYING;hb=HEAD' && \
           wget -q -O LICENSES 'https://sourceware.org/git/?p=glibc.git;a=blob_plain;f=LICENSES;hb=HEAD'
-        id: extract_release
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:

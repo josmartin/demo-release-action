@@ -17,7 +17,15 @@ jobs:
 
       - name: "Build & test"
         run: |
-          DOCKER_BUILDKIT=1 docker build --output type=local,dest=. --build-arg NAME=obj1 .
+          DOCKER_BUILDKIT=1 docker build --output type=local,dest=. --build-arg NAME=obj1.test .
+          DOCKER_BUILDKIT=1 docker build --output type=local,dest=. --build-arg NAME=obj2.test .
+          DOCKER_BUILDKIT=1 docker build --output type=local,dest=. --build-arg NAME=obj3.test .
+
+      - name: "Get License to release under"
+        shell: bash
+        run: |
+          wget -q -O build/COPYING  'https://sourceware.org/git/?p=glibc.git;a=blob_plain;f=COPYING;hb=HEAD'
+          wget -q -O build/LICENSES 'https://sourceware.org/git/?p=glibc.git;a=blob_plain;f=LICENSES;hb=HEAD'
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
@@ -26,4 +34,6 @@ jobs:
           prerelease: true
           title: "Development Build"
           files: |
-            build/output*
+            build/*.test
+            COPYING
+            LICENSES
