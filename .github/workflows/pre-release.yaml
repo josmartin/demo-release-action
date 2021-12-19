@@ -17,7 +17,7 @@ jobs:
 
       - name: "Build & test"
         run: |
-          DOCKER_BUILDKIT=1 docker build --output type=local,dest=. --build-args NAME=obj1 .
+          DOCKER_BUILDKIT=1 docker build --output type=local,dest=. --build-arg NAME=obj1 .
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
