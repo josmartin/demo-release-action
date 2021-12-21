@@ -5,8 +5,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  release-debian-bullseye:
-    uses: "josmartin/demo-release-action/.github/workflows/build-and-release.yaml@main"
-      with: 
-        dist-base: debian
-        dist-tag: bullseye
+  build:
+    uses: josmartin/demo-release-action/.github/workflows/build-and-release.yaml@main
+    with: 
+      dist-base: debian
+      dist-tag: bullseye
