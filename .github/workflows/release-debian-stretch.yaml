@@ -8,7 +8,7 @@ on:
 
 jobs:
   release-debian-stretch:
-    uses: "josmartin/demo-release-action/.github/workflows/build-and-release.yaml@main"
+    uses: josmartin/demo-release-action/.github/workflows/build-and-release.yaml@main
       with: 
         dist-base: debian
         dist-tag: stretch
