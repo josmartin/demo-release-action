@@ -3,6 +3,8 @@ name: "release-debian-bullseye"
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron:  '0 0 * * *'
 
 jobs:
   release-debian-bullseye:

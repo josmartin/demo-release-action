@@ -3,7 +3,9 @@ name: "release-debian-stretch"
 
 on:
   workflow_dispatch:
-
+  schedule:
+    - cron:  '0 0 * * *'
+    
 jobs:
   release-debian-stretch:
     uses: josmartin/demo-release-action/.github/workflows/build-and-release.yaml

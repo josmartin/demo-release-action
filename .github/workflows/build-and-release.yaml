@@ -1,4 +1,6 @@
 ---
+name: "build-and-release"
+
 on:
   workflow_call:
     inputs:
@@ -10,7 +12,7 @@ on:
         type: string
 
 jobs:
-  build:
+  build-and-release:
     runs-on: "ubuntu-latest"
 
     steps:
