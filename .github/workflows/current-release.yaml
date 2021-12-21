@@ -1,5 +1,5 @@
 ---
-name: "current"
+name: "current-release"
 # This workflow keeps the "current" release artifacts up-to-date on a periodic basis
 
 on:
