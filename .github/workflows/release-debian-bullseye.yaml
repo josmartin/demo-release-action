@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  debian-stretch-release:
+  release-debian-bullseye:
     uses: josmartin/demo-release-action/.github/workflows/build-and-release.yaml
       with: 
         dist-base: debian
