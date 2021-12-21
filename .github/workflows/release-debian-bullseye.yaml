@@ -1,0 +1,11 @@
+name: "release-debian-bullseye"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  debian-stretch-release:
+    uses: josmartin/demo-release-action/.github/workflows/build-and-release.yaml
+      with: 
+        dist-base: debian
+        dist-tag: bullseye
