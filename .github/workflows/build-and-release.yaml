@@ -28,6 +28,8 @@ jobs:
         with:
           delete_release: true 
           tag_name: ${{ inputs.dist-base }}-${{ inputs.dist-tag }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: "Build & test"
         run: |
