@@ -1,5 +1,6 @@
 FROM ubuntu:latest as build-stage
-RUN echo HELLO >> /tmp/output
+ARG ECHO_TEXT=HELLO1
+RUN echo ${ECHO_TEXT} >> /tmp/output
 
 FROM scratch
 ARG NAME

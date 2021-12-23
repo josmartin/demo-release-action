@@ -27,14 +27,14 @@ jobs:
         run: |
           DOCKER_BUILDKIT=1 docker build --output type=local,dest=. --build-arg NAME=${{ inputs.dist-base }}.${{ inputs.dist-tag }}.test .
 
-      - name: Upload artifact
+      - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           path: |
             build/*.test
 
-
-      - uses: softprops/action-gh-release@v1
+      - name: Release artifacts
+        uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ inputs.dist-base }}-${{ inputs.dist-tag }}
           name: "Current build for: ${{ inputs.dist-base }}-${{ inputs.dist-tag }}"
