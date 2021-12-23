@@ -30,7 +30,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: my-artifact
           path: |
             build/*.test
 
@@ -38,7 +37,7 @@ jobs:
       - uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ inputs.dist-base }}-${{ inputs.dist-tag }}
-          name: "NAME: ${{ inputs.dist-base }}-${{ inputs.dist-tag }}"
+          name: "Current build for: ${{ inputs.dist-base }}-${{ inputs.dist-tag }}"
           prerelease: false
           draft: false
           generate_release_notes: false
