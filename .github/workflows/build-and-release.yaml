@@ -27,6 +27,14 @@ jobs:
         run: |
           DOCKER_BUILDKIT=1 docker build --output type=local,dest=. --build-arg NAME=${{ inputs.dist-base }}:${{ inputs.dist-tag }}.test .
 
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: |
+            build/*.test
+
+
       - uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ inputs.dist-base }}-${{ inputs.dist-tag }}
