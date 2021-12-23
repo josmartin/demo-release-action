@@ -25,7 +25,9 @@ jobs:
 
       - name: "Build & test"
         run: |
-          DOCKER_BUILDKIT=1 docker build --output type=local,dest=. --build-arg NAME=${{ inputs.dist-base }}.${{ inputs.dist-tag }}.test .
+          DOCKER_BUILDKIT=1 docker build --output type=local,dest=. \
+          --build-arg NAME=${{ inputs.dist-base }}.${{ inputs.dist-tag }}.test \
+          --build-arg ECHO_TEXT=HELLO11 .
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
