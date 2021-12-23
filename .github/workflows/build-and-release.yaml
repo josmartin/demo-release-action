@@ -27,11 +27,12 @@ jobs:
         run: |
           DOCKER_BUILDKIT=1 docker build --output type=local,dest=. --build-arg NAME=${{ inputs.dist-base }}:${{ inputs.dist-tag }}.test .
 
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - uses: softprops/action-gh-release@v1
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "${{ inputs.dist-base }}-${{ inputs.dist-tag }}"
+          tag_name: ${{ inputs.dist-base }}-${{ inputs.dist-tag }}
+          name: "NAME: ${{ inputs.dist-base }}-${{ inputs.dist-tag }}"
           prerelease: false
-          title: "Current Builds for ${{ inputs.dist-base }}:${{ inputs.dist-tag }}"
+          draft: false
+          generate_release_notes: false
           files: |
             build/*.test
